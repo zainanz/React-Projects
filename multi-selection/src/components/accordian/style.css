@@ -1,0 +1,32 @@
+.wrapper {
+  background-color: beige;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper button {
+  padding: 8px 15px;
+  background: khaki;
+  font-weight: bold;
+  border-radius: 30px;
+}
+.accordian {
+
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 600px;
+  box-shadow: 1px 1px 5px gray;
+  border-radius: 50px;
+  margin: 50px;
+  padding: 20px;
+}
+.question-div{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
