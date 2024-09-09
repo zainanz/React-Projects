@@ -1,0 +1,23 @@
+.active {
+  color: yellow;
+}
+.inactive {
+  color: black;
+}
+
+
+.centerify {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+
+.reset-button {
+  border-radius: 10px;
+  margin-left: 50px;
+  padding: 10px;
+}
