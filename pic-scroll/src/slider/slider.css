@@ -1,0 +1,13 @@
+.image{
+  width: 500px;
+}
+
+.stars {
+  display:flex;
+  justify-content: center
+}
+
+
+.hide {
+  display: none;
+}
