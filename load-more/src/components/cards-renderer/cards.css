@@ -1,0 +1,13 @@
+.cards-wrapper{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.load-more{
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 20px 0px;
+}
