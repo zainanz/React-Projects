@@ -1,0 +1,30 @@
+.image-container {
+  position: relative;
+  width: fit-content;
+}
+.arrow{
+  position: absolute;
+}
+.image-container:hover .arrow-left, .image-container:hover .arrow-right{
+  color:white;
+  background-color: rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+
+.arrow-left{
+  left: 10px;
+  top: 50%;
+  font-size: 3rem;
+  transform: translateY(-50%);
+}
+
+.arrow-right{
+  right: 10px;
+  top: 50%;
+  font-size: 3rem;
+  transform: translateY(-50%);
+}
+
+.icon{
+}

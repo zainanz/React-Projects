@@ -9,9 +9,6 @@ function App() {
   return (
     <section className="border h-full">
       <LandingPage element={ref} />
-      <div ref={ref}>
-      <AboutMe/>
-      </div>
     </section>
   );
 }

@@ -1,12 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import "./landingpage.css"
 import Project from "../project/Project"
 export default function LandingPage({element}: {element: React.MutableRefObject<HTMLDivElement | null>}){
 
   return (
-    <div className="px-28 py-28 h-full justify-between" style={{backgroundColor:"beige"}}>
+    <div className="px-28 py-10 h-full justify-between" style={{backgroundColor:"beige"}}>
 
 
 
@@ -53,9 +52,10 @@ export default function LandingPage({element}: {element: React.MutableRefObject<
       </div>
 
 
-      <div className='my-28'>
+      <div className='my-28 border fade-in'>
+        <h4 className='text-center text-4xl font-bold'>Projects</h4>
         <div>
-          <Project/>
+          <Project width="500px" stack={["./stack/css.svg","./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures= {["./timemachines/TimeMachine.png", "./timemachines/TimeMachine2.png", "./timemachines/TimeMachine3.png", "./timemachines/TimeMachine4.png", "./timemachines/TimeMachine5.png"]}/>
         </div>
       </div>
     </div>
