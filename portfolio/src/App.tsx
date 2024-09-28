@@ -6,7 +6,7 @@ function App() {
   const ref = useRef<HTMLDivElement | null>(null)
   return (
     <section className="border h-full">
-      <LandingPage element={ref} />
+      <LandingPage/>
     </section>
   );
 }

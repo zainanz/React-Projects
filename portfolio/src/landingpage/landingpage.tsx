@@ -1,11 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useRef, useState } from 'react';
 import "./landingpage.css"
 import Project from "../project/Project"
-export default function LandingPage({element}: {element: React.MutableRefObject<HTMLDivElement | null>}){
+export default function LandingPage(){
+  const domRef = useRef<HTMLInputElement | null>(null);
+  const [minimized, setMinimized] = useState(false);
+  const handleResize = () => {
+    if(domRef.current){
+      domRef.current.style.transform = minimized ? "scale(0.9)" : "scale(1)"
+      setMinimized(prev => !prev)
+    }
+  }
 
   return (
-    <div className="h-full flex justify-center flex-col px-28" style={{backgroundColor: "beige"}}>
+    <div ref={domRef} className="h-full flex justify-center flex-col px-28" style={{backgroundColor: "beige", position: "relative"}}>
+
+      <div style={{position:'absolute', top:'10px',right:"20px"}} onClick={()=> handleResize()}>
+        <img style={{width: "2rem"}} alt="resize" src="./reize.svg"/>
+      </div>
+
       <div className="flex justify-between">
           <div style={{width:"55%"}} className=''>
           {/* Name */}
@@ -38,8 +52,8 @@ export default function LandingPage({element}: {element: React.MutableRefObject<
 
           {/* Hard Skills Section */}
           <div className="fade-in text-2xl flex flex-col w-full ">
-            <h3 className="text-2xl my-3"><span className="font-bold">T</span>ech Stack</h3>
-            <span style={{backgroundColor: "#81b29a"}} className=" font-bold tracking-wide py-2 px-3 text-white stroked-text robotomono-font"> HTML, CSS, Javascript, Typescript, SCSS, TailwindCSS, Bootstrap, React, Redux, PostgreSQL/MySQL and Ruby on Rails.</span>
+            <h3 className="text-2xl my-3 robotomono-font"><span className="font-bold">T</span>ech Stack</h3>
+            <span style={{backgroundColor: "#81b29a"}} className=" font-bold tracking-wide py-2 px-3 text-white stroked-text robotomono-font"> HTML, CSS, Javascript, Typescript, SCSS, TailwindCSS, Bootstrap, React, Redux, PostgreSQL/MySQL, Heroku and Ruby on Rails.</span>
           </div>
 
         </div>
@@ -64,6 +78,7 @@ export default function LandingPage({element}: {element: React.MutableRefObject<
 
         </div>
       </div>
+
     </div>
   )
 }
