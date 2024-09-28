@@ -5,11 +5,11 @@ import Project from "../project/Project"
 export default function LandingPage({element}: {element: React.MutableRefObject<HTMLDivElement | null>}){
 
   return (
-    <div className="px-28 py-10 h-full justify-between" style={{backgroundColor:"beige"}}>
+    <div className="h-full flex justify-center flex-col px-28">
 
 
 
-      <div style={{width:'fit-content'}} className='border'>
+      <div style={{width:'fit-content'}} className=''>
         {/* Name */}
         <div className="flex items-center">
           <div className="typing-effect overflow-hidden">
@@ -45,17 +45,20 @@ export default function LandingPage({element}: {element: React.MutableRefObject<
 
 
         {/* Hard Skills Section */}
-        <div className="fade-in text-2xl flex flex-col items-center w-full border">
-          <h3 className="text-2xl my-3"><span className="font-bold">H</span>ard Skills</h3>
-          <span style={{backgroundColor: "#81b29a"}} className=" font-bold tracking-wide py-2 px-3 text-white stroked-text"> HTML, CSS, Javascript, Ruby on Rails API, React, Redux and SQL.</span>
+        <div className="fade-in text-2xl flex flex-col w-full ">
+          <h3 className="text-2xl my-3"><span className="font-bold">T</span>ech Stack</h3>
+          <span style={{backgroundColor: "#81b29a"}} className=" font-bold tracking-wide py-2 px-3 text-white stroked-text"> HTML, CSS, Javascript, Typescript, Ruby on Rails API, React, Redux and PostgreSQL/MySQL.</span>
         </div>
       </div>
 
 
-      <div className='my-28 border fade-in'>
-        <h4 className='text-center text-4xl font-bold'>Projects</h4>
-        <div>
-          <Project width="500px" stack={["./stack/css.svg","./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures= {["./timemachines/TimeMachine.png", "./timemachines/TimeMachine2.png", "./timemachines/TimeMachine3.png", "./timemachines/TimeMachine4.png", "./timemachines/TimeMachine5.png"]}/>
+      <div className='  fade-in'>
+        <h4 className='text-center text-4xl font-bold my-5'>Projects</h4>
+        <div className="flex justify-between">
+          <Project width="500px" stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./timemachines/TimeMachine.png", "./timemachines/TimeMachine2.png", "./timemachines/TimeMachine3.png", "./timemachines/TimeMachine4.png", "./timemachines/TimeMachine5.png"]} code={''} website={''}/>
+          <Project width="500px" stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./playpal/playpal.png", "./playpal/playpal.png", "./playpal/playpal3.png", "./playpal/playpal4.png", "./playpal/playpal5.png", "./playpal/playpal6.png"]} code={''} website={''}/>
+          <Project width="500px" stackBgColor="#EDE8DC" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg", "./stack/react.svg", "./stack/redux.svg"]} pictures={["./advancetodo/advancetodo.png", "./advancetodo/advancetodo2.png"]} code={''} website={''}/>
+
         </div>
       </div>
     </div>

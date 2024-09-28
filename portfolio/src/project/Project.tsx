@@ -5,9 +5,12 @@ import "./project.css"
 type props ={
   stack: string[],
   pictures: string[],
-  width: string
+  width: string,
+  code: string,
+  website: string,
+  stackBgColor: string
 }
-export default function Project({width = "600px", stack, pictures}: props){
+export default function Project({code="", stackBgColor = "white", website="", width = "600px", stack, pictures}: props){
   const [currentSlide, setCurrentSlide] = useState(0)
   const handleNext = () => {
     setCurrentSlide(prev => pictures[prev+1] ? prev + 1 : prev)
@@ -19,7 +22,10 @@ export default function Project({width = "600px", stack, pictures}: props){
     <div  className="" style={{width:width}}>
 
       <div className="image-container">
-
+        <div className="flex justify-evenly">
+          <a href={code} style={{width:"49%", backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50">Code</a>
+          <a href={website} style={{width:"49%",backgroundColor: "rgb(129, 178, 154)"}} className="text-white font-bold flex justify-center rounded hover:opacity-50">Website</a>
+        </div>
         <div onClick={()=> handleBack()} className="arrow arrow-left">
         <FontAwesomeIcon icon={faCaretLeft} />
         </div>
@@ -32,14 +38,10 @@ export default function Project({width = "600px", stack, pictures}: props){
 
       </div>
 
-      <div className="bg-white px-3 py-1 rounded flex ">
+      <div style={{backgroundColor:stackBgColor}} className="px-3 py-1 rounded flex justify-center">
         {
           stack.map( (ref: string) => <img className="icon mx-2" src={ref} alt="" />)
         }
-      </div>
-      <div className="border flex">
-        <a href=""  style={{backgroundColor: "rgb(129, 178, 154)"}} className="flex px-20 justify-center rounded-md text-sm font-semibold leading-6 text-white shadow-sm hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Code</a>
-        <a href="">Website</a>
       </div>
     </div>
   )
