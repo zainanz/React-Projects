@@ -19,7 +19,7 @@ export default function Project({code="", stackBgColor = "white", website="", wi
     setCurrentSlide(prev => pictures[prev - 1] ? prev - 1 : prev)
   }
   return (
-    <div  className="" style={{width:width}}>
+    <div  className="mx-2" style={{width:width}}>
 
       <div className="image-container">
         <div className="flex justify-evenly">
