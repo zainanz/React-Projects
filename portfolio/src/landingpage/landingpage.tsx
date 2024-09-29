@@ -12,7 +12,8 @@ export default function LandingPage(){
   const handleResize = () => {
     if(domRef.current && projectDOM.current && toplinks.current && stackDOM.current){
       if(minimized){
-        toplinks.current.classList.add("link-up");
+        toplinks.current.classList.remove('link-down')
+        toplinks.current.classList.add("link-up")
         stackDOM.current.classList.add('stack-down');
         projectDOM.current.classList.remove("set-position")
         setTimeout(() => {
@@ -20,6 +21,8 @@ export default function LandingPage(){
           stackDOM.current?.classList.add('hidden');
           toplinks.current?.classList.remove("link-up");
           stackDOM.current?.classList.remove('stack-down');
+          toplinks.current?.classList.add("link-down")
+
         }, 500);
 
       } else {
