@@ -103,3 +103,56 @@
     display: none;
   }
 }
+
+.transition-up{
+  animation: transitionup 900ms ease-in-out;
+}
+
+
+@keyframes transitionup {
+  0%{
+    transform: translateY(300%);
+  }100%{
+    transform: translateY(0%);
+  }
+}
+
+@keyframes transitiondown {
+  0%{
+    transform: translateY(0);
+  }100%{
+    transform: translateY(300%);
+  }
+}
+
+@keyframes linkdown {
+
+  0%{
+    transform: translateY(-300%);
+  }100%{
+    transform: translateY(0%);
+  }
+}
+
+@keyframes linkup {
+  0%{
+    transform: translateY(0);
+  }100%{
+    transform: translateY(-300%);
+  }
+}
+
+.link-up {
+  animation: linkup 500ms ease-in-out;
+}
+.link-down {
+  animation: linkdown 400ms ease-in-out;
+
+}
+.stack-up{
+  animation: transitionup 400ms ease-in-out;
+}
+
+.stack-down {
+  animation: transitiondown 500ms ease-in-out;
+}
