@@ -5,31 +5,49 @@ import "./landingpage.css"
 import Project from "../project/Project"
 export default function LandingPage(){
   const domRef = useRef<HTMLInputElement | null>(null);
+  const projectDOM = useRef<HTMLInputElement | null>(null);
+  const toplinks = useRef<HTMLInputElement | null>(null);
+
   const [minimized, setMinimized] = useState(false);
   const handleResize = () => {
-    if(domRef.current){
-      domRef.current.style.transform = minimized ? "scale(0.9)" : "scale(1)"
+    if(domRef.current && projectDOM.current && toplinks.current){
+      // domRef.current.style.width = "90%"
+      if(minimized){
+        domRef.current.style.height = "100%"
+        toplinks.current.classList.add("hidden")
+        projectDOM.current.classList.remove("set-position")
+      } else {
+        domRef.current.style.height = "88%"
+        projectDOM.current.classList.add("set-position")
+        toplinks.current.classList.remove("hidden")
+      }
       setMinimized(prev => !prev)
+
     }
   }
 
   return (
-    <div ref={domRef} className="h-full flex justify-center flex-col px-28" style={{backgroundColor: "beige", position: "relative"}}>
+    <div ref={projectDOM} className='relative' style={{height:'100vh'}}>
+      <div ref={toplinks} style={{width:"99%"}} className='hidden mb-1 justify-between flex'>
+        <a href="" style={{width:"49%", backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50">Code</a>
+        <a href="" style={{width:"49%",backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50">Website</a>
+      </div>
+
+    <div ref={domRef} className="flex justify-center flex-col px-10 py-5 glass-effect" style={{  backgroundColor:  'rgb(255, 255, 255, 0.3)', height:'100vh', width:'100%', position: "relative"}}>
 
       <div style={{position:'absolute', top:'10px',right:"20px"}} onClick={()=> handleResize()}>
         <img style={{width: "2rem"}} alt="resize" src="./reize.svg"/>
       </div>
+      {/* Name */}
 
+      <div className="flex items-center">
+        <div className="typing-effect overflow-hidden">
+          <h1 className="text-5xl myname my-5 robotomono-font ">Hi, I am Zainan Ali 👋</h1>
+        </div>
+        <span className="fade-in fade-in-delay text-2xl mx-5"> - Web Developer</span>
+      </div>
       <div className="flex justify-between">
           <div style={{width:"55%"}} className=''>
-          {/* Name */}
-          <div className="flex items-center">
-            <div className="typing-effect overflow-hidden">
-              <h1 className="text-5xl myname my-5 robotomono-font ">Hi, I am Zainan Ali 👋</h1>
-            </div>
-            <span className="fade-in fade-in-delay text-2xl mx-5"> - Web Developer</span>
-          </div>
-
           {/* Description */}
           <span className="fade-in mx-5 text-2xl" style={{width:'300px'}}>
             ~ As a web developer, I have hands on experience with various web technologies.
@@ -78,7 +96,13 @@ export default function LandingPage(){
 
         </div>
       </div>
+    </div>
+      {/* Buttons */}
 
+      {/* Tech */}
+      <div className='my-1 glass-effect flex items-center justify-center' style={{ backgroundColor:"rgba(100, 100, 100, 0.3)", width:"100%", height:"100%"}}>
+        <img className="mx-5" style={{width:"4%"}}  src="./stack/typescript.svg" alt="" />
+      </div>
     </div>
   )
 }

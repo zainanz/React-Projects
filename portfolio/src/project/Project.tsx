@@ -38,7 +38,7 @@ export default function Project({code="", stackBgColor = "white", website="", wi
 
       </div>
 
-      <div style={{backgroundColor:stackBgColor}} className="px-3 py-1 rounded flex justify-center">
+      <div style={{backgroundColor:stackBgColor, height:"40px"}} className="px-3 py-1 rounded flex justify-center">
         {
           stack.map( (ref: string) => <img className="icon mx-2" src={ref} alt="" />)
         }

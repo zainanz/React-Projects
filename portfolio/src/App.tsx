@@ -5,7 +5,7 @@ import { useRef } from 'react';
 function App() {
   const ref = useRef<HTMLDivElement | null>(null)
   return (
-    <section className="border h-full">
+    <section  className="border" style={{backgroundImage: 'url("./background.svg")'}}>
       <LandingPage/>
     </section>
   );
