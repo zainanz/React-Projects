@@ -64,8 +64,8 @@ export default function LandingPage(){
         <div style={{width:"55%"}} className=''>
 
           {/* Description */}
-          <span className="fade-in mx-5 text-1xl" style={{width:'10%'}}>
-            ~ As a web developer, I have hands on experience with various web technologies.
+          <span className="playwrite-font fade-in mx-5 text-1xl" style={{width:'10%'}}>
+            ~ A dedicated web developer with a passion for crafting responsive and user-friendly websites.
           </span>
 
           {/* Contact */}
