@@ -22,7 +22,7 @@ export default function Project({code="", stackBgColor = "white", website="", wi
   }
 
   return (
-    <div className="border p-5 mx-3" style={{width:width}}>
+    <div className="mx-3" style={{width:width}}>
       <div className="image-container">
         <div className="flex justify-evenly">
           <a href={code} target="_blank" style={{width:"49%", backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50" rel="noreferrer">Code</a>
