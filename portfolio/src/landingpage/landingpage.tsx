@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useRef, useState } from 'react';
+import { useRef, useState, lazy, Suspense } from 'react';
 import "./landingpage.css"
-import Project from "../project/Project"
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+const Project = lazy( () => import("../project/Project"))
 export default function LandingPage(){
   const domRef = useRef<HTMLInputElement | null>(null);
   const projectDOM = useRef<HTMLInputElement | null>(null);
@@ -37,6 +39,8 @@ export default function LandingPage(){
 
   return (
     <div ref={projectDOM} className='flex flex-col' style={{height:"auto", position:"relative"}}>
+      <Suspense fallback={<div style={{height:'100vh', width:"100vw"}}className='flex justify-center items-center flex-col'><FontAwesomeIcon className='text-5xl loading-animation-infinite' icon={faSpinner}/><span className="text-2xl my-9 text-gray-800">Loading, please wait :)</span></div>}>
+
       {/* Portfolio Code and Website */}
       <div ref={toplinks} style={{width:"99%", height:""}} className='hidden link-down border justify-between flex'>
         <a href="https://github.com/zainanz/React-Projects/tree/main/portfolio" target="_blank" style={{width:"49%", backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50" rel="noreferrer">Code</a>
@@ -54,7 +58,7 @@ export default function LandingPage(){
 
       <div className="flex items-center">
         <div className="typing-effect overflow-hidden">
-          <h1 className="text-4xl myname my-5 robotomono-font ">Hi, I am Zainan Ali 👋</h1>
+          <h1 className="text-4xl myname my-5 robotomono-font ">Hi, I am Zainan Ali <span className="wave-animation-infinite">👋</span></h1>
         </div>
         <span className="fade-in fade-in-delay text-base md:text-lg lg:text-xl xl:text-2xl mx-5"> - Web Developer</span>
       </div>
@@ -125,6 +129,7 @@ export default function LandingPage(){
         <img className="mx-5 my-5" style={{width:"50px"}}  src="./stack/javascript.svg" alt="" />
 
       </div>
+      </Suspense>
     </div>
   )
 }
