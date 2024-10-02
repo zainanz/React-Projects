@@ -39,7 +39,6 @@ export default function LandingPage(){
 
   return (
     <div ref={projectDOM} className='flex flex-col' style={{height:"auto", position:"relative"}}>
-      <Suspense fallback={<div style={{height:'100vh', width:"100vw"}}className='flex justify-center items-center flex-col'><FontAwesomeIcon className='text-5xl loading-animation-infinite' icon={faSpinner}/><span className="text-2xl my-9 text-gray-800">Loading, please wait :)</span></div>}>
 
       {/* Portfolio Code and Website */}
       <div ref={toplinks} style={{width:"99%", height:""}} className='hidden link-down border justify-between flex'>
@@ -108,15 +107,17 @@ export default function LandingPage(){
 
       {/* Project Section */}
 
+        <Suspense fallback={<div style={{height:'100%', width:"100%"}}className='flex justify-center items-center flex-col'><FontAwesomeIcon className='text-3xl loading-animation-infinite' icon={faSpinner}/><span className="text-1xl my-9 text-gray-800">loading projects :)</span></div>}>
       <div className='transition-up'>
         <h4 className='text-center text-2xl playwrite-font font-bold my-5 my-14'>Projects</h4>
         <div className="project-div">
+
           <Project width="70%" code={"https://github.com/cheblimarc4/Time_Machine_BNB"} website={""} stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./timemachines/TimeMachine.png", "./timemachines/TimeMachine2.png", "./timemachines/TimeMachine3.png", "./timemachines/TimeMachine4.png", "./timemachines/TimeMachine5.png"]}/>
           <Project width="70%" code={"https://github.com/cheblimarc4/PlayPal"} website={""} stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./playpal/playpal.png", "./playpal/playpal2.png", "./playpal/playpal3.png", "./playpal/playpal4.png", "./playpal/playpal5.png", "./playpal/playpal6.png"]}/>
           <Project width="70%" code={"https://github.com/zainanz/Advance-ToDo-JWT-Authentication"} website={"https://jwttodo.netlify.app"} stackBgColor="#EDE8DC" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg", "./stack/react.svg", "./stack/redux.svg"]} pictures={["./advancetodo/advancetodo.png", "./advancetodo/advancetodo2.png"]}/>
-
         </div>
       </div>
+        </Suspense>
     </div>
 
       {/* Portfolio Stack */}
@@ -129,7 +130,6 @@ export default function LandingPage(){
         <img className="mx-5 my-5" style={{width:"50px"}}  src="./stack/javascript.svg" alt="" />
 
       </div>
-      </Suspense>
     </div>
   )
 }
