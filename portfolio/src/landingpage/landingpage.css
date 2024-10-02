@@ -143,18 +143,18 @@
 }
 
 .link-up {
-  animation: linkup 500ms ease-in-out;
+  animation: linkup 500ms ease-in-out forwards;
 }
 .link-down {
-  animation: linkdown 400ms ease-in-out;
+  animation: linkdown 400ms ease-in-out forwards;
 
 }
 .stack-up{
-  animation: transitionup 400ms ease-in-out;
+  animation: transitionup 400ms ease-in-out forwards;
 }
 
 .stack-down {
-  animation: transitiondown 500ms ease-in-out;
+  animation: transitiondown 500ms ease-in-out forwards;
 }
 
 @keyframes spin {
@@ -171,4 +171,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes wave-infinite {
+  0%{
+    transform: rotate(50deg);
+  }
+  100%{
+    transform: rotate(0deg);
+
+  }
+}
+
+.wave-animation-infinite{
+  animation: wave-infinite 1s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+@keyframes highfive {
+  5%{
+    transform: scale(0.4);
+  }
+  30%{
+    transform: scale(0.8);
+    transform: translateY(2px);
+  }
+  50%{
+    transform: scale(1);
+  }
+  70%{
+    transform: scale(2);
+    opacity: .7;
+  }
+  100%{
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+.highfive-animation{
+  animation: highfive 900ms ease-in-out;
+  display: inline-block;
+
 }

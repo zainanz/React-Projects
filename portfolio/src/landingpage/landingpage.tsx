@@ -11,6 +11,10 @@ export default function LandingPage(){
   const toplinks = useRef<HTMLInputElement | null>(null);
   const stackDOM = useRef<HTMLInputElement | null>(null);
   const [minimized, setMinimized] = useState(false);
+  const tooltip = useRef<HTMLParagraphElement | null>(null);
+
+
+
   const handleResize = () => {
     if(domRef.current && projectDOM.current && toplinks.current && stackDOM.current){
       if(minimized){
@@ -36,10 +40,38 @@ export default function LandingPage(){
 
     }
   }
+  type MouseEventPara = React.MouseEvent<HTMLParagraphElement, MouseEvent>
+
+  // High Five Handlers
+  const onMouseEnter = (e: MouseEventPara) => {
+    tooltip.current!.classList.remove("hidden")
+    tooltip.current!.innerHTML = "Highfive?"
+  }
+  const handleMouseMove = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    tooltip.current!.style.top = `${e.clientY + 20}px`;
+    tooltip.current!.style.left = `${e.clientX}px`;
+
+  }
+  const onMouseLeave =(e: MouseEventPara) => {
+    tooltip.current!.innerHTML = ""
+    tooltip.current!.classList.add("hidden")
+  }
+
+  const performHighFive = (e: React.MouseEvent<HTMLParagraphElement>) => {
+    const target = e.target as HTMLElement
+    target.classList.remove("wave-animation-infinite");
+    target.classList.add("highfive-animation")
+
+    setTimeout(() => {
+      target.classList.remove('highfive-animation');
+      target.classList.add("wave-animation-infinite");
+    }, 1000);
+  }
 
   return (
     <div ref={projectDOM} className='flex flex-col' style={{height:"auto", position:"relative"}}>
-
+      <p ref={tooltip} className='bg-white rounded p-5 font-bold text-gray hidden' style={{position:"absolute", zIndex:'500'}}>
+      </p>
       {/* Portfolio Code and Website */}
       <div ref={toplinks} style={{width:"99%", height:""}} className='hidden link-down border justify-between flex'>
         <a href="https://github.com/zainanz/React-Projects/tree/main/portfolio" target="_blank" style={{width:"49%", backgroundColor: "rgb(129, 178, 154)"}} className=" text-white font-bold flex justify-center rounded hover:opacity-50" rel="noreferrer">Code</a>
@@ -57,7 +89,7 @@ export default function LandingPage(){
 
       <div className="flex items-center">
         <div className="typing-effect overflow-hidden">
-          <h1 className="text-4xl myname my-5 robotomono-font ">Hi, I am Zainan Ali <span className="wave-animation-infinite">👋</span></h1>
+          <h1 className="text-4xl myname my-5 robotomono-font">Hi, I am Zainan Ali <p onClick={performHighFive} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onMouseMove={handleMouseMove} className="wave-animation-infinite">👋</p></h1>
         </div>
         <span className="fade-in fade-in-delay text-base md:text-lg lg:text-xl xl:text-2xl mx-5"> - Web Developer</span>
       </div>
@@ -128,7 +160,6 @@ export default function LandingPage(){
         <img className="mx-5 my-5" style={{width:"50px"}}  src="./stack/html.svg" alt="" />
         <img className="mx-5 my-5" style={{width:"50px"}}  src="./stack/css.svg" alt="" />
         <img className="mx-5 my-5" style={{width:"50px"}}  src="./stack/javascript.svg" alt="" />
-
       </div>
     </div>
   )
