@@ -15,3 +15,7 @@ html, body {
 .robotomono-font{
   font-family: "Roboto Mono", monospace;
 }
+
+body{
+  @apply playwrite-font
+}

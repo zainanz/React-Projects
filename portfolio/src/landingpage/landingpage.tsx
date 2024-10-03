@@ -82,7 +82,7 @@ export default function LandingPage(){
 
       {/* Resize Icon */}
       <div className="resize-icon" style={{position:'absolute', top:'10px',right:"20px"}} onClick={()=> handleResize()}>
-        <img style={{width: "2rem"}} alt="resize" src="./reize.svg"/>
+        <img className="hover:opacity-50" style={{width: "2rem"}} alt="resize" src="./reize.svg"/>
       </div>
 
       {/* Name */}
@@ -128,11 +128,11 @@ export default function LandingPage(){
 
         {/* 40% W Second Section */}
         {/* Resume PLUG */}
-        <div className='fade-in playwrite-font flex justify-center items-end' style={{width:"40%"}}>
+        <div className='fade-in  flex justify-center items-end' style={{width:"40%"}}>
           <div style={{width:"30rem"}}>
-          <strong><i>Looking to hire?</i></strong>
-          <p className='px-3'><i>Feel free to download my resume and contact me to discuss how I can contribute to your team.</i></p>
-          <a download href="./ZainanAli.pdf" style={{width:"fit-content"}} className="flex flex-col justify-center mx-auto my-4"><img style={{transform:"rotate(2deg)"}} alt="Zainan's Resume Download" className="my-3" src="./stack/cvdownload.svg"></img>Zainan's Resume</a>
+          <strong>Looking to hire?</strong>
+          <p className='px-3'>Feel free to download my resume and contact me to discuss how I can contribute to your team.</p>
+          <a download href="./ZainanAli.pdf" title="Download Zainan's Resume" style={{width:"fit-content"}} className="flex flex-col justify-center mx-auto my-4"><img  alt="Zainan's Resume Download" className="my-3" src="./stack/cvdownload.svg"></img>Download Resume</a>
           </div>
         </div>
       </div>
