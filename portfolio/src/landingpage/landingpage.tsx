@@ -145,7 +145,7 @@ export default function LandingPage(){
         <div className="project-div">
 
           <Project width="70%" code={"https://github.com/cheblimarc4/Time_Machine_BNB"} website={""} stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./timemachines/TimeMachine.png", "./timemachines/TimeMachine2.png", "./timemachines/TimeMachine3.png", "./timemachines/TimeMachine4.png", "./timemachines/TimeMachine5.png"]}/>
-          <Project width="70%" code={"https://github.com/cheblimarc4/PlayPal"} website={""} stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./playpal/playpal.png", "./playpal/playpal2.png", "./playpal/playpal3.png", "./playpal/playpal4.png", "./playpal/playpal5.png", "./playpal/playpal6.png"]}/>
+          <Project width="70%" code={"https://github.com/cheblimarc4/PlayPal"} website={"https://www.play-pal.pro/"} stackBgColor="#F6F6FF" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg"]} pictures={["./playpal/playpal.png", "./playpal/playpal2.png", "./playpal/playpal3.png", "./playpal/playpal4.png", "./playpal/playpal5.png", "./playpal/playpal6.png"]}/>
           <Project width="70%" code={"https://github.com/zainanz/Advance-ToDo-JWT-Authentication"} website={"https://jwttodo.netlify.app"} stackBgColor="#EDE8DC" stack={["./stack/css.svg", "./stack/html.svg", "./stack/rubyonrails.svg", "./stack/javascript.svg", "./stack/react.svg", "./stack/redux.svg"]} pictures={["./advancetodo/advancetodo.png", "./advancetodo/advancetodo2.png"]}/>
         </div>
       </div>
