@@ -307,3 +307,19 @@
   animation: circular-move 2s infinite 1.5s ease-in-out;
   transform-origin: 50%;
 }
+
+
+@keyframes three {
+  0%{
+    transform: translate3d(0px, 0px, -500px);
+  }
+  100%{
+    transform: translate3d(0px, 0px, 0px);
+
+  }
+  
+}
+
+.three{
+  animation: three 1s linear;
+}

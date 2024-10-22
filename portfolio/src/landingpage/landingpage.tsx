@@ -75,6 +75,7 @@ export default function LandingPage() {
     const loaded = () => {
       loadingDom.current!.classList.add("hidden");
       projectDOM.current!.classList.remove("hidden");
+      projectDOM.current!.classList.add("three");
     };
     const loadingScreen = setInterval(() => {
       console.log("loaded inside interval");
@@ -278,7 +279,7 @@ export default function LandingPage() {
                   {" "}
                   HTML, CSS, Javascript, Typescript, SCSS, TailwindCSS,
                   Bootstrap, React, Redux, PostgreSQL/MySQL, Heroku and Ruby on
-                  Rails.
+                  Rails, Express JS, NodeJS
                 </span>
               </div>
             </div>
