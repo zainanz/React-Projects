@@ -63,6 +63,7 @@
 }
 
 .dark-bg-shadow > div{
+  position: absolute;
   min-height: 3rem;
   max-width: 100%;
   max-width: 50vw;
@@ -70,16 +71,20 @@
   overflow: hidden;
 }
  
-.description{
+.maxdesc{
   min-height: 3rem;
   margin: 0 auto;
+  width: 50vw;
+  white-space: "no-wrap";
+}
+
+
+.description{
+  padding: 15px;
+  border-radius: 20px;
   background-color: beige;
   color: #33664d;
   font-weight: bolder;
-  width: 50vw;
-  padding: 15px;
-  white-space: "no-wrap";
-  border-radius: 20px;
 } 
 .description h3{
   text-align: center;

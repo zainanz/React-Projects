@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { RefObject, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
+
 import "./project.css";
 type props = {
   stack: string[];
@@ -12,7 +13,9 @@ type props = {
   stackBgColor: string;
   description: string;
   descHeader: string;
+  mainDom: RefObject<HTMLDivElement>;
 };
+
 export default function Project({
   code = "",
   stackBgColor = "white",
@@ -22,6 +25,7 @@ export default function Project({
   stack,
   pictures,
   descHeader,
+  mainDom,
 }: props) {
   const blackShade = useRef<HTMLDivElement>(null);
   const projectDiv = useRef<HTMLDivElement>(null);
@@ -38,30 +42,54 @@ export default function Project({
   };
 
   const displayDescription = () => {
-    if (blackShade && projectDiv && descriptionDiv) {
-      blackShade.current!.style.visibility = "visible";
-      projectDiv.current!.style.zIndex = "50";
-      descriptionDiv.current!.classList.add("scroll-animation");
-    }
+    // if (blackShade && projectDiv && descriptionDiv) {
+    projectDiv.current!.style.zIndex = "50";
+    //   if (window.innerWidth <= 1600) {
+    //     // TODO PART
+    //     descriptionDiv.current!.style.top = `${
+    //       projectDiv.current!.getBoundingClientRect().top +
+    //       document.querySelector("body")!.scrollTop +
+    //       projectDiv.current!.getBoundingClientRect().height / 2
+    //     }px`;
+    //     blackShade.current!.style.visibility = "visible";
+    //     projectDiv.current!.style.transform = "translateX(250px)";
+    //     //
+    //   } else {
+    blackShade.current!.style.visibility = "visible";
+    descriptionDiv.current!.classList.add("scroll-animation");
+    // }
+    // }
   };
 
   const removeBlackShade = () => {
-    if (blackShade && projectDiv && descriptionDiv) {
-      blackShade.current!.style.visibility = "hidden";
-      projectDiv.current!.style.zIndex = "1";
-      descriptionDiv.current!.classList.remove("scroll-animation");
-    }
+    blackShade.current!.style.visibility = "hidden";
+    descriptionDiv.current!.classList.remove("scroll-animation");
+    projectDiv.current!.style.zIndex = "5";
   };
   return (
-    <>
+    <div className="flex justify-center items-center w-full">
       <div ref={blackShade} className="dark-bg-shadow">
-        <div ref={descriptionDiv}>
-          <div className="description">
+        <div className="border" ref={descriptionDiv}>
+          <div
+            className={
+              window.innerWidth > 1600 ? "description maxdesc" : "description"
+            }
+          >
             <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
             <span>{description || "your description here"}</span>
           </div>
         </div>
       </div>
+      {/* <div className="border" ref={descriptionDiv}>
+        <div
+          className={
+            window.innerWidth > 1600 ? "description maxdesc" : "description"
+          }
+        >
+          <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
+          <span>{description || "your description here"}</span>
+        </div>
+      </div> */}
       <div
         ref={projectDiv}
         onMouseEnter={displayDescription}
@@ -140,6 +168,6 @@ export default function Project({
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
