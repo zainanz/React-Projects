@@ -1,4 +1,4 @@
-import { RefObject, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
@@ -27,9 +27,11 @@ export default function Project({
   descHeader,
   mainDom,
 }: props) {
+  const [bigScreen, setBigScreen] = useState<boolean | null>(null);
   const blackShade = useRef<HTMLDivElement>(null);
   const projectDiv = useRef<HTMLDivElement>(null);
   const descriptionDiv = useRef<HTMLDivElement>(null);
+  const descDiv = useRef<HTMLDivElement>(null);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const handleNext = () => {
@@ -43,8 +45,8 @@ export default function Project({
 
   const displayDescription = () => {
     projectDiv.current!.style.zIndex = "50";
-    if (window.innerWidth <= 1600) {
-      descriptionDiv.current!.style.transform = "translateX(0px)";
+    if (!bigScreen) {
+      descDiv.current!.style.transform = "translateX(0px)";
       projectDiv.current!.style.transform = "translateX(0px)";
     } else {
       blackShade.current!.style.visibility = "visible";
@@ -53,8 +55,8 @@ export default function Project({
   };
 
   const removeBlackShade = () => {
-    if (window.innerWidth <= 1600) {
-      descriptionDiv.current!.style.transform = "translateX(-200%)";
+    if (!bigScreen) {
+      descDiv.current!.style.transform = "translateX(-200%)";
       projectDiv.current!.style.transform = "translateX(-25%)";
     } else {
       blackShade.current!.style.visibility = "hidden";
@@ -62,16 +64,31 @@ export default function Project({
       projectDiv.current!.style.zIndex = "5";
     }
   };
+
+  const handleResize = () => {
+    if (window.innerWidth > 1600) {
+      // To remove -25% from big screen
+      projectDiv.current!.style.transform = "translateX(0%)";
+      setBigScreen(true);
+    } else {
+      // When resized it sets -25% so it centers it for hover effect
+      projectDiv.current!.style.transform = "translateX(-25%)";
+      setBigScreen(false);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="flex justify-center items-center w-full">
-      {window.innerWidth > 1600 ? (
+      {bigScreen ? (
         <div ref={blackShade} className="dark-bg-shadow">
           <div className="" ref={descriptionDiv}>
-            <div
-              className={
-                window.innerWidth > 1600 ? "description maxdesc" : "description"
-              }
-            >
+            <div className={bigScreen ? "description maxdesc" : "description"}>
               <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
               <span>{description || "your description here"}</span>
             </div>
@@ -80,14 +97,14 @@ export default function Project({
       ) : (
         <div
           className="transform-animate"
-          style={{ transform: "translateX(-200%)", width: "30%" }}
-          ref={descriptionDiv}
+          style={{
+            visibility: "visible",
+            transform: "translateX(-200%)",
+            width: "30%",
+          }}
+          ref={descDiv}
         >
-          <div
-            className={
-              window.innerWidth > 1600 ? "description maxdesc" : "description"
-            }
-          >
+          <div className={bigScreen ? "description maxdesc" : "description"}>
             <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
             <span>{description || "your description here"}</span>
           </div>
