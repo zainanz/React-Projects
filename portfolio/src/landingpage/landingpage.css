@@ -90,6 +90,15 @@
     height: 100%;
   }
 
+  .transform-animate{
+    transition: transform 1s ease-in-out;
+  } 
+
+.projectIndex{
+  width: 60%;
+  transform: translateX(-25%);
+} 
+
 }
 
 

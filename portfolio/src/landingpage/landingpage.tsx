@@ -418,7 +418,7 @@ A web application designed to connect new residents with local sports teams base
           style={{
             backgroundColor: "rgba(100, 100, 100, 0.3)",
             height: "50px",
-            width: "100%",
+            width: "70%",
           }}
         >
           <img

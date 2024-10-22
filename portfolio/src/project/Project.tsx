@@ -42,34 +42,47 @@ export default function Project({
   };
 
   const displayDescription = () => {
-    // if (blackShade && projectDiv && descriptionDiv) {
     projectDiv.current!.style.zIndex = "50";
-    //   if (window.innerWidth <= 1600) {
-    //     // TODO PART
-    //     descriptionDiv.current!.style.top = `${
-    //       projectDiv.current!.getBoundingClientRect().top +
-    //       document.querySelector("body")!.scrollTop +
-    //       projectDiv.current!.getBoundingClientRect().height / 2
-    //     }px`;
-    //     blackShade.current!.style.visibility = "visible";
-    //     projectDiv.current!.style.transform = "translateX(250px)";
-    //     //
-    //   } else {
-    blackShade.current!.style.visibility = "visible";
-    descriptionDiv.current!.classList.add("scroll-animation");
-    // }
-    // }
+    if (window.innerWidth <= 1600) {
+      descriptionDiv.current!.style.transform = "translateX(0px)";
+      projectDiv.current!.style.transform = "translateX(0px)";
+    } else {
+      blackShade.current!.style.visibility = "visible";
+      descriptionDiv.current!.classList.add("scroll-animation");
+    }
   };
 
   const removeBlackShade = () => {
-    blackShade.current!.style.visibility = "hidden";
-    descriptionDiv.current!.classList.remove("scroll-animation");
-    projectDiv.current!.style.zIndex = "5";
+    if (window.innerWidth <= 1600) {
+      descriptionDiv.current!.style.transform = "translateX(-200%)";
+      projectDiv.current!.style.transform = "translateX(-25%)";
+    } else {
+      blackShade.current!.style.visibility = "hidden";
+      descriptionDiv.current!.classList.remove("scroll-animation");
+      projectDiv.current!.style.zIndex = "5";
+    }
   };
   return (
     <div className="flex justify-center items-center w-full">
-      <div ref={blackShade} className="dark-bg-shadow">
-        <div className="border" ref={descriptionDiv}>
+      {window.innerWidth > 1600 ? (
+        <div ref={blackShade} className="dark-bg-shadow">
+          <div className="" ref={descriptionDiv}>
+            <div
+              className={
+                window.innerWidth > 1600 ? "description maxdesc" : "description"
+              }
+            >
+              <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
+              <span>{description || "your description here"}</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          className="transform-animate"
+          style={{ transform: "translateX(-200%)", width: "30%" }}
+          ref={descriptionDiv}
+        >
           <div
             className={
               window.innerWidth > 1600 ? "description maxdesc" : "description"
@@ -79,23 +92,12 @@ export default function Project({
             <span>{description || "your description here"}</span>
           </div>
         </div>
-      </div>
-      {/* <div className="border" ref={descriptionDiv}>
-        <div
-          className={
-            window.innerWidth > 1600 ? "description maxdesc" : "description"
-          }
-        >
-          <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
-          <span>{description || "your description here"}</span>
-        </div>
-      </div> */}
+      )}
       <div
         ref={projectDiv}
         onMouseEnter={displayDescription}
         onMouseLeave={removeBlackShade}
-        className="mx-3 projectIndex"
-        style={{ width: width }}
+        className="mx-3 projectIndex transform-animate"
       >
         <div className="image-container">
           <div className="flex justify-evenly">
