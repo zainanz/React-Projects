@@ -204,7 +204,7 @@ export default function LandingPage() {
 
           {/* Name */}
 
-          <div className="flex items-center">
+          <div className="flex items-center portdiv">
             <div className="typing-effect overflow-hidden">
               <h1 className="text-4xl myname my-5 arial-font">
                 Hi, I am Zainan Ali{" "}

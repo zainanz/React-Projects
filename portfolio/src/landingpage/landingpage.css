@@ -78,13 +78,18 @@
     height: 100%;
     overflow:scroll;
   }
+  .portdiv{
+    padding: 2rem 0;
+  }
   .project-div{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
   }
   .project-div > * {
     margin: 50px 0px;
+
   }
   .dom-ref{
     height: 100%;
@@ -104,7 +109,9 @@
 
 
 @media only screen and (max-width: 1000px) {
-
+  .portdiv{
+    padding: 2rem 0;
+  }
   html, body{
     overflow: scroll;
     height: 100%;
