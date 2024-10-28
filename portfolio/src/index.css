@@ -8,11 +8,13 @@ html, body {
   overflow:hidden;
 }
 .playwrite-font{
-  font-family: "Playwrite DE Grund", cursive;
+  /* font-family: "Playwrite DE Grund", cursive; */
 }
 
 .robotomono-font{
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
+  font-family: "Arial";
+
 }
 
 body{

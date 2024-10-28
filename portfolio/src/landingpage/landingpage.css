@@ -12,7 +12,7 @@
     width: 0px;
   }
   100%{
-  width: 500px;
+  width: 350px;
   }
 }
 
@@ -322,4 +322,22 @@
 
 .three{
   animation: three 1s linear;
+}
+
+
+ul.tech-stack-list{
+  list-style: none;
+  display:flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+ul.tech-stack-list li::after{
+  content:"-";
+  margin: 5px;
+  
+}
+
+ul.tech-stack-list li:nth-last-child(1)::after{
+  content:""
 }

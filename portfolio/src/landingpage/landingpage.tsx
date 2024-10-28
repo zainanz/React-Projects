@@ -13,6 +13,23 @@ export default function LandingPage() {
   const loadingDom = useRef<HTMLInputElement | null>(null);
   const [minimized, setMinimized] = useState(false);
   const tooltip = useRef<HTMLParagraphElement | null>(null);
+  const techStack = [
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Typescript",
+    "SCSS",
+    "TailwindCSS",
+    "Bootstrap",
+    "React",
+    "React Native",
+    "Redux",
+    "PostgreSQL/MySQL",
+    "Heroku",
+    "Ruby on Rails",
+    "ExpressJS",
+    "NodeJS",
+  ];
 
   const handleResize = () => {
     if (
@@ -272,15 +289,14 @@ export default function LandingPage() {
                 <h3 className="text-2xl my-3 robotomono-font text-base md:text-lg lg:text-xl xl:text-2xl">
                   <span className="font-bold">T</span>ech Stack
                 </h3>
-                <span
+                <ul
                   style={{ backgroundColor: "#81b29a" }}
-                  className=" font-bold tracking-wide py-2 px-3 text-white stroked-text robotomono-font rounded"
+                  className=" font-bold tracking-wide py-2 px-3 text-white stroked-text robotomono-font tech-stack-list"
                 >
-                  {" "}
-                  HTML, CSS, Javascript, Typescript, SCSS, TailwindCSS,
-                  Bootstrap, React, Redux, PostgreSQL/MySQL, Heroku and Ruby on
-                  Rails, Express JS, NodeJS
-                </span>
+                  {techStack.map((tech) => (
+                    <li>{tech}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
