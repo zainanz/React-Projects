@@ -7,16 +7,7 @@ html, body {
   height: 100vh;
   overflow:hidden;
 }
-.playwrite-font{
-  /* font-family: "Playwrite DE Grund", cursive; */
-}
 
-.robotomono-font{
-  /* font-family: "Roboto Mono", monospace; */
+.arial-font{
   font-family: "Arial";
-
-}
-
-body{
-  @apply playwrite-font
 }

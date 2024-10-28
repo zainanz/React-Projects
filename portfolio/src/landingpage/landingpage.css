@@ -228,17 +228,27 @@
 
 
 
-.svg-container{
-  font-size: 10rem;
+.svg-name{
   font-weight: 900;
+  font-family: Arial;
+  font-size: 5rem;
+
+
+}
+
+.svg-container{
+  font-size: 2rem;
+
   fill: #33664d;
   stroke-width: 3;
   stroke: #2c5c45;
   overflow: visible;
 }
 .svg-text{
-  font-family: "Playwrite DE Grund", cursive;
+  fill: #33664d;
+
   animation: animate-stroke 4s infinite alternate;
+  font-weight: 900;
 }
 @keyframes animate-stroke {
   0%{
@@ -264,48 +274,44 @@
 
 
 @keyframes circular-move {
-  0%{
-    fill: transparent;
-    stroke: #2c5c45;
-    stroke-width: 3;
-    stroke-dashoffset: 25%;
-    stroke-dasharray: 0 32%;
-  }
-  40%{
-    fill: #2c5c45;
-    stroke: #2c5c45;
-    stroke-dashoffset: -25%;
-    stroke-dasharray: 32% 0 ;
-  }
-  50%{
-    fill: transparent;
-    stroke: #2c5c45;
-    stroke-width: 3;
-  }
-  80%{
-    fill: #2c5c45;
-    stroke: #2c5c45;
-    stroke-dashoffset: -25%;
-    stroke-dasharray: 32% 0 ;
-  }
-  100%{
-    transform: rotate(360deg);
+  0%,35%{
+    opacity: 0%;
+
 
   }
+
+  45%,80%{
+    opacity: 1;
+  }
+
+  100%{
+    transform:   scale(-1, -1) rotate(360deg);
+  }
 }
+
+g > path{
+  opacity: 0;
+}
+
 .svg-dot{
-  animation: circular-move 2s infinite ease-in-out;
+  transform: scale(-1, -1);
+  animation: circular-move 3s infinite alternate ease-in-out;
   transform-origin: 50%;
 }
 
 .svg-dot-2{
-  animation: circular-move 2s infinite 1s ease-in-out;
+
+  transform:  scale(-1, -1);
+  animation: circular-move 3s infinite alternate 1s ease-in-out;
   transform-origin: 50%;
+
 }
 
 .svg-dot-3{
-  animation: circular-move 2s infinite 1.5s ease-in-out;
+  transform: scale(-1, -1);
+  animation: circular-move 3s infinite alternate 1.5s ease-in-out;
   transform-origin: 50%;
+
 }
 
 

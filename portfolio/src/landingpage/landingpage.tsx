@@ -113,40 +113,35 @@ export default function LandingPage() {
         ref={loadingDom}
         style={{ width: "100vw", height: "100vh" }}
       >
-        <svg width="4em" height="3em" className="glass-effect svg-container">
+        <svg
+          width="3.5em"
+          height="3.5em"
+          className="border-5 glass-effect svg-container"
+        >
           <text
             x="50%"
             y="50%"
             dy=".32em"
             textAnchor="middle"
-            className="svg-text"
+            className="svg-text svg-name"
           >
-            Zainan
+            Z
           </text>
-          <text
-            x="100%"
-            y="50%"
-            textAnchor="middle"
-            className="svg-text svg-dot"
-          >
-            .
-          </text>
-          <text
-            x="100%"
-            y="50%"
-            textAnchor="middle"
-            className="svg-text svg-dot-2"
-          >
-            .
-          </text>
-          <text
-            x="100%"
-            y="50%"
-            textAnchor="middle"
-            className="svg-text svg-dot-3"
-          >
-            .
-          </text>
+
+          <g>
+            <path
+              className="svg-dot"
+              d="M12 21.7C11.8667 21.701 11.7355 21.6665 11.62 21.6L3.86999 17.12C3.75615 17.0543 3.66186 16.9594 3.59683 16.8452C3.5318 16.731 3.49838 16.6014 3.5 16.47V7.53001C3.49838 7.39856 3.5318 7.26906 3.59683 7.15482C3.66186 7.04058 3.75615 6.94572 3.86999 6.88001L11.62 2.40001C11.7346 2.33608 11.8637 2.30252 11.995 2.30252C12.1263 2.30252 12.2553 2.33608 12.37 2.40001L20.12 6.88001C20.2364 6.9436 20.3333 7.03771 20.4003 7.15224C20.4672 7.26676 20.5017 7.39736 20.5 7.53001V16.47C20.5017 16.6027 20.4672 16.7333 20.4003 16.8478C20.3333 16.9623 20.2364 17.0564 20.12 17.12L12.37 21.6C12.2586 21.6676 12.1303 21.7023 12 21.7ZM4.99999 16L12 20L19 16V8.00001L12 4.00001L4.99999 8.00001V16Z"
+            />
+            <path
+              className=" svg-dot-3"
+              d="M12 21.7C11.8667 21.701 11.7355 21.6665 11.62 21.6L3.86999 17.12C3.75615 17.0543 3.66186 16.9594 3.59683 16.8452C3.5318 16.731 3.49838 16.6014 3.5 16.47V7.53001C3.49838 7.39856 3.5318 7.26906 3.59683 7.15482C3.66186 7.04058 3.75615 6.94572 3.86999 6.88001L11.62 2.40001C11.7346 2.33608 11.8637 2.30252 11.995 2.30252C12.1263 2.30252 12.2553 2.33608 12.37 2.40001L20.12 6.88001C20.2364 6.9436 20.3333 7.03771 20.4003 7.15224C20.4672 7.26676 20.5017 7.39736 20.5 7.53001V16.47C20.5017 16.6027 20.4672 16.7333 20.4003 16.8478C20.3333 16.9623 20.2364 17.0564 20.12 17.12L12.37 21.6C12.2586 21.6676 12.1303 21.7023 12 21.7ZM4.99999 16L12 20L19 16V8.00001L12 4.00001L4.99999 8.00001V16Z"
+            />
+            <path
+              className="svg-dot-2"
+              d="M12 21.7C11.8667 21.701 11.7355 21.6665 11.62 21.6L3.86999 17.12C3.75615 17.0543 3.66186 16.9594 3.59683 16.8452C3.5318 16.731 3.49838 16.6014 3.5 16.47V7.53001C3.49838 7.39856 3.5318 7.26906 3.59683 7.15482C3.66186 7.04058 3.75615 6.94572 3.86999 6.88001L11.62 2.40001C11.7346 2.33608 11.8637 2.30252 11.995 2.30252C12.1263 2.30252 12.2553 2.33608 12.37 2.40001L20.12 6.88001C20.2364 6.9436 20.3333 7.03771 20.4003 7.15224C20.4672 7.26676 20.5017 7.39736 20.5 7.53001V16.47C20.5017 16.6027 20.4672 16.7333 20.4003 16.8478C20.3333 16.9623 20.2364 17.0564 20.12 17.12L12.37 21.6C12.2586 21.6676 12.1303 21.7023 12 21.7ZM4.99999 16L12 20L19 16V8.00001L12 4.00001L4.99999 8.00001V16Z"
+            />
+          </g>
         </svg>
       </div>
       <div
@@ -211,14 +206,14 @@ export default function LandingPage() {
 
           <div className="flex items-center">
             <div className="typing-effect overflow-hidden">
-              <h1 className="text-4xl myname my-5 robotomono-font">
+              <h1 className="text-4xl myname my-5 arial-font">
                 Hi, I am Zainan Ali{" "}
                 <p
                   onClick={performHighFive}
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}
                   onMouseMove={handleMouseMove}
-                  className="wave-animation-infinite"
+                  className="wave-animation-infinite cursor-pointer"
                 >
                   👋
                 </p>
@@ -233,10 +228,7 @@ export default function LandingPage() {
             {/* 55% W First Section Starts here */}
             <div style={{ width: "55%" }} className="">
               {/* Description */}
-              <span
-                className="playwrite-font fade-in mx-5 text-1xl"
-                style={{ width: "10%" }}
-              >
+              <span className="fade-in mx-5 text-1xl" style={{ width: "10%" }}>
                 ~ A dedicated web developer with a passion for crafting
                 responsive and user-friendly websites.
               </span>
@@ -286,12 +278,12 @@ export default function LandingPage() {
 
               {/* Hard Skills Section */}
               <div className="fade-in text-2xl flex flex-col w-full ">
-                <h3 className="text-2xl my-3 robotomono-font text-base md:text-lg lg:text-xl xl:text-2xl">
+                <h3 className="text-2xl my-3 arial-font text-base md:text-lg lg:text-xl xl:text-2xl">
                   <span className="font-bold">T</span>ech Stack
                 </h3>
                 <ul
                   style={{ backgroundColor: "#81b29a" }}
-                  className=" font-bold tracking-wide py-2 px-3 text-white stroked-text robotomono-font tech-stack-list"
+                  className=" font-bold tracking-wide py-2 px-3 text-white stroked-text arial-font tech-stack-list"
                 >
                   {techStack.map((tech) => (
                     <li>{tech}</li>
@@ -349,7 +341,7 @@ export default function LandingPage() {
             }
           >
             <div className="transition-up">
-              <h4 className="text-center text-2xl playwrite-font font-bold my-5 my-14">
+              <h4 className="text-center text-2xl font-bold my-5 my-14">
                 Projects
               </h4>
               <div className="project-div">
