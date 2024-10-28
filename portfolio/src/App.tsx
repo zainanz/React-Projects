@@ -1,18 +1,7 @@
-import "./App.css";
-import LandingPage from "./landingpage/landingpage";
+import { Outlet } from "react-router-dom";
+
 function App() {
-  return (
-    <section
-      className="flex"
-      style={{
-        backgroundImage: 'url("./background.svg")',
-        minHeight: "100vh",
-        height: "auto",
-      }}
-    >
-      <LandingPage />
-    </section>
-  );
+  return <Outlet />;
 }
 
 export default App;
