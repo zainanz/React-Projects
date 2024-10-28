@@ -341,9 +341,7 @@ export default function LandingPage() {
             }
           >
             <div className="transition-up">
-              <h4 className="text-center text-2xl font-bold my-5 my-14">
-                Projects
-              </h4>
+              <h4 className="text-center text-2xl font-bold my-14">Projects</h4>
               <div className="project-div">
                 <Project
                   mainDom={domRef}
