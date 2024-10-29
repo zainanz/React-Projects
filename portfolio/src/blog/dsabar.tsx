@@ -1,7 +1,22 @@
+import { useEffect } from "react";
+import "./dsabar.css";
+import { useParams } from "react-router-dom";
 export default function DSABar() {
+  const sort_list = ["Bubble Sort", "Insertion Sort"];
+  const params = useParams();
+
   return (
-    <div>
-      <h1></h1>
+    <div style={{}} className="dsa-bar">
+      <div className="section-bar">
+        <p>Sorting</p>
+        <ul>
+          {sort_list.map((item) => (
+            <a key={item} href={`/docs/${item}`}>
+              <li className={params.name === item ? "active" : ""}>{item}</li>
+            </a>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
