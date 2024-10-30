@@ -23,6 +23,7 @@ const router = createBrowserRouter(
     <Route element={<App />}>
       <Route index element={<LandingSection />} />
       <Route path="/docs" element={<Blog />}>
+        <Route index element={<MainSection />} />
         <Route path=":name" element={<MainSection />} />
       </Route>
     </Route>

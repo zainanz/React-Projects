@@ -3,6 +3,7 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRef, useState, lazy, Suspense, useEffect } from "react";
 import "./landingpage.css";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Link, redirect } from "react-router-dom";
 
 const Project = lazy(() => import("../project/Project"));
 export default function LandingPage() {
@@ -95,15 +96,28 @@ export default function LandingPage() {
       projectDOM.current!.classList.add("three");
     };
     const loadingScreen = setInterval(() => {
-      console.log("loaded inside interval");
+      console.log("loaded inside interval", isLoaded);
       if (isLoaded) {
         loaded();
         clearInterval(loadingScreen);
       }
     }, 4000);
     const setLoaded = () => (isLoaded = true);
-    window.addEventListener("load", setLoaded);
-    return () => window.removeEventListener("load", setLoaded);
+    if (sessionStorage.getItem("wasCached") === "true") {
+      console.log("Cached");
+      loaded();
+      clearInterval(loadingScreen);
+    }
+
+    const initializeLoader = () => {
+      setLoaded();
+      sessionStorage.setItem("wasCached", "true");
+    };
+    window.addEventListener("load", initializeLoader);
+
+    return () => {
+      window.removeEventListener("load", initializeLoader);
+    };
   }, []);
 
   return (
@@ -190,12 +204,23 @@ export default function LandingPage() {
         >
           {/* Resize Icon */}
           <div
-            className="resize-icon"
+            className="flex items-center"
             style={{ position: "absolute", top: "10px", right: "20px" }}
-            onClick={() => handleResize()}
           >
+            <Link to={"/docs"}>
+              <button
+                className="mx-5 rounded text-white font-bold"
+                style={{
+                  width: "120px",
+                  backgroundColor: "rgb(129, 178, 154)",
+                }}
+              >
+                Docs
+              </button>
+            </Link>
             <img
-              className="hover:opacity-50"
+              onClick={() => handleResize()}
+              className="hover:opacity-50 resize-icon"
               style={{ width: "2rem" }}
               alt="resize"
               src="./reize.svg"

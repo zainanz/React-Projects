@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 
-html, body {
-  overflow:hidden;
-}
-
 .arial-font{
   font-family: "Arial";
 }
