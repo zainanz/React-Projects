@@ -3,7 +3,7 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRef, useState, lazy, Suspense, useEffect } from "react";
 import "./landingpage.css";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Project = lazy(() => import("../project/Project"));
 export default function LandingPage() {
