@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import "./dsabar.css";
 import { useParams } from "react-router-dom";
 export default function DSABar() {
-  const sort_list = ["Bubble Sort", "Insertion Sort"];
+  const sort_list = ["Bubble Sort", "Insertion Sort", "Selection Sort"];
   const params = useParams();
 
   return (
