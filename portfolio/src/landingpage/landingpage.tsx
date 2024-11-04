@@ -3,7 +3,7 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRef, useState, lazy, Suspense, useEffect } from "react";
 import "./landingpage.css";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Project = lazy(() => import("../project/Project"));
 export default function LandingPage() {
@@ -207,7 +207,7 @@ export default function LandingPage() {
             className="flex items-center"
             style={{ position: "absolute", top: "10px", right: "20px" }}
           >
-            <Link to={"/docs"}>
+            {/* <Link to={"/docs"}>
               <button
                 className="mx-5 rounded text-white font-bold"
                 style={{
@@ -217,7 +217,7 @@ export default function LandingPage() {
               >
                 Docs
               </button>
-            </Link>
+            </Link> */}
             <img
               onClick={() => handleResize()}
               className="hover:opacity-50 resize-icon"
@@ -371,7 +371,12 @@ export default function LandingPage() {
                 <Project
                   mainDom={domRef}
                   descHeader="Time Flies"
-                  description="Time Flies is a fun web application developed during my bootcamp alongside my classmates, built using Ruby on Rails. This platform allows users to rent out their own time machines or rent someone else's, creating a unique experience for exploring various timelines. This project showcases our teamwork and creativity while demonstrating our skills in web development."
+                  description={[
+                    "Time Flies is a fun web application developed during my bootcamp with classmates.",
+                    "Built using Ruby on Rails.",
+                    "Allows users to rent their own time machines or rent from others, creating a unique experience for exploring different timelines.",
+                    "Showcases our teamwork and creativity, as well as our web development skills.",
+                  ]}
                   width="100%"
                   code={"https://github.com/cheblimarc4/Time_Machine_BNB"}
                   website={""}
@@ -393,8 +398,11 @@ export default function LandingPage() {
                 <Project
                   mainDom={projectDOM}
                   descHeader="PlayPal"
-                  description="
-A web application designed to connect new residents with local sports teams based on skill level and interests. This project was developed as a collaborative effort with fellow Le Wagon alumni, showcasing our ability to work effectively in a team environment."
+                  description={[
+                    "A web application designed to connect new residents with local sports teams based on skill level and interests.",
+                    "Developed collaboratively with fellow Le Wagon alumni.",
+                    "Showcases our ability to work effectively in a team environment.",
+                  ]}
                   width="100%"
                   code={"https://github.com/cheblimarc4/PlayPal"}
                   website={"https://www.play-pal.pro/"}
@@ -417,7 +425,15 @@ A web application designed to connect new residents with local sports teams base
                 <Project
                   mainDom={projectDOM}
                   descHeader="Auth Todo"
-                  description="The Auth To-Do List Application is designed for efficient task management, built on a Ruby on Rails API for the backend and React with Redux for the frontend. It features JWT authentication for secure user access, allowing users to create, read, update, and delete tasks seamlessly. With Redux for state management, the application offers a responsive interface that reflects real-time updates, enabling users to categorize and prioritize their tasks effectively. This project showcases my full-stack development skills, combining Ruby on Rails and React to deliver a robust and user-friendly solution."
+                  description={[
+                    "The Auth To-Do List Application is designed for efficient task management.",
+                    "Built with a Ruby on Rails API backend and a React frontend with Redux.",
+                    "Features JWT authentication for secure user access.",
+                    "Users can create, read, update, and delete tasks seamlessly.",
+                    "Uses Redux for state management to ensure real-time updates.",
+                    "Allows users to categorize and prioritize tasks effectively.",
+                    "Showcases my full-stack skills by combining Ruby on Rails and React.",
+                  ]}
                   width="100%"
                   code={
                     "https://github.com/zainanz/Advance-ToDo-JWT-Authentication"

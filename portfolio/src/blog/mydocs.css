@@ -6,3 +6,16 @@
     background: beige;
     display:flex;
 }
+
+
+.pop-up{
+    color:black;
+    font-weight: bolder;
+    background-color: rgba(200, 100, 100, .5);
+    border-radius: 50px 0px 0px 50px;
+    padding: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid black;
+}

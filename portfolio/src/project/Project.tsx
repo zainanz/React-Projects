@@ -11,7 +11,7 @@ type props = {
   code: string;
   website: string;
   stackBgColor: string;
-  description: string;
+  description: string[];
   descHeader: string;
   mainDom: RefObject<HTMLDivElement>;
 };
@@ -90,7 +90,11 @@ export default function Project({
           <div className="" ref={descriptionDiv}>
             <div className={bigScreen ? "description maxdesc" : "description"}>
               <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
-              <span>{description || "your description here"}</span>
+              <span>
+                {description.map((des) => (
+                  <li style={{ listStyle: "none" }}>{des}</li>
+                )) || "your description here"}
+              </span>
             </div>
           </div>
         </div>
@@ -106,7 +110,11 @@ export default function Project({
         >
           <div className={bigScreen ? "description maxdesc" : "description"}>
             <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
-            <span>{description || "your description here"}</span>
+            <span>
+              {description.map((des) => (
+                <li style={{ listStyle: "none" }}>{des}</li>
+              )) || "your description here"}
+            </span>
           </div>
         </div>
       )}
