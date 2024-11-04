@@ -94,3 +94,9 @@
 .scroll-animation{
   animation: scrollOpen 0.5s linear;
 }
+
+
+.scroll-list-div {
+  border-left: 1px solid #33664d;
+  padding-left: 10px;
+}

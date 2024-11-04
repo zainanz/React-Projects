@@ -88,12 +88,13 @@ export default function Project({
       {bigScreen ? (
         <div ref={blackShade} className="dark-bg-shadow">
           <div className="" ref={descriptionDiv}>
-            <div className={bigScreen ? "description maxdesc" : "description"}>
-              <h3 className="my-3 text-2xl">{descHeader || "Heading here"}</h3>
-              <span>
-                {description.map((des) => (
-                  <li style={{ listStyle: "none" }}>{des}</li>
-                )) || "your description here"}
+            <div
+              className={"description maxdesc items-center justify-evenly flex"}
+            >
+              <h3 className="mx-3 text-2xl">{descHeader || "Heading here"}</h3>
+              <span className="scroll-list-div">
+                {description.map((des) => <li>{des}</li>) ||
+                  "your description here"}
               </span>
             </div>
           </div>
