@@ -103,15 +103,15 @@ export default function LandingPage() {
       }
     }, 4000);
     const setLoaded = () => (isLoaded = true);
-    if (sessionStorage.getItem("wasCached") === "true") {
-      console.log("Cached");
-      loaded();
-      clearInterval(loadingScreen);
-    }
+    // if (sessionStorage.getItem("wasCached") === "true") {
+    //   console.log("Cached");
+    //   loaded();
+    //   clearInterval(loadingScreen);
+    // }
 
     const initializeLoader = () => {
       setLoaded();
-      sessionStorage.setItem("wasCached", "true");
+      // sessionStorage.setItem("wasCached", "true");
     };
     window.addEventListener("load", initializeLoader);
 
