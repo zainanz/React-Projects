@@ -103,7 +103,8 @@ export default function LandingPage() {
       }
     }, 4000);
     const setLoaded = () => {
-      isLoaded = true
+      isLoaded = true;
+      console.log("Ready and Loaded: ", isLoaded);
     };
     // if (sessionStorage.getItem("wasCached") === "true") {
     //   console.log("Cached");
