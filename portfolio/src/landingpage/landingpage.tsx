@@ -102,21 +102,19 @@ export default function LandingPage() {
         clearInterval(loadingScreen);
       }
     }, 4000);
-    const setLoaded = () => (isLoaded = true);
+    const setLoaded = () => {
+      isLoaded = true
+    };
     // if (sessionStorage.getItem("wasCached") === "true") {
     //   console.log("Cached");
     //   loaded();
     //   clearInterval(loadingScreen);
     // }
 
-    const initializeLoader = () => {
-      setLoaded();
-      // sessionStorage.setItem("wasCached", "true");
-    };
-    window.addEventListener("load", initializeLoader);
+    window.addEventListener("load", setLoaded);
 
     return () => {
-      window.removeEventListener("load", initializeLoader);
+      window.removeEventListener("load", setLoaded);
     };
   }, []);
 
