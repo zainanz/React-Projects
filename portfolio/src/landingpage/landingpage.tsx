@@ -113,9 +113,14 @@ export default function LandingPage() {
     // }
 
     window.addEventListener("load", setLoaded);
-
+    if (document.readyState === 'complete') {
+      setLoaded(); 
+    } else {
+      window.addEventListener('load', setLoaded); 
+    }
     return () => {
       window.removeEventListener("load", setLoaded);
+      clearInterval(loadingScreen);
     };
   }, []);
 
